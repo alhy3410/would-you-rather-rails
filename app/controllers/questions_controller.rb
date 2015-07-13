@@ -27,10 +27,14 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
-    if @question.update(question_params)
-      redirect_to questions_path
+    selected = params[:selected]
+    if selected == "1"
+      @question.update(question1vote: @question.question1vote + 1)
     else
-      render :edit
+      @question.update(question2vote: @question.question2vote + 1)
+    end
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -43,7 +47,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:question1, :question2)
+    params.require(:question).permit(:question1, :question2, :question1vote, :question2vote)
   end
 
 end

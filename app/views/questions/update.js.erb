@@ -1,1 +1,3 @@
-$('#question1_<%= question.id %>').hide();
+
+$("#vote1_<%= @question.id %>").text(<%= @question.question1vote %>);
+$("#vote2_<%= @question.id %>").text(<%= @question.question2vote %>);
