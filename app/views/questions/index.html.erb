@@ -1,0 +1,27 @@
+<h1>Would You Rather</h1>
+
+<div class="all-questions">
+  <div id= "all-questions-table">
+    <% @questions.each do |question| %>
+      <div class="question">
+        <%= question.question1 %>
+        <%= question.question1vote %>
+        <input type="checkbox" name="question1" value="question1"> Vote for question 1<br>
+        <%= question.question2 %>
+        <%= question.question2vote %>
+        <input type="checkbox" name="question2" value="question2"> Vote for question 2<br>
+      </div>
+      <div class="question-actions">
+        <%= link_to 'Edit', edit_question_path(question) %>
+        <%= link_to 'Delete', question_path(question),
+                              :data => {:confirm => "Are you sure you want to delete this set of questions?",
+                              :method => "Delete"} %>
+      </div>
+      <br>
+    <% end %>
+  </div>
+</div>
+
+<div class="links">
+  <p><%= link_to "Add another set of questions", new_question_path, id: 'new_questions', remote: true %></p>
+</div>
