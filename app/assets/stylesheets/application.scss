@@ -17,9 +17,49 @@
  @import "bootstrap";
 
 body{
+  margin-right:20%;
+  margin-left:25%;
   padding: 10%;
 }
 
 #all-questions-table{
   list-style-type: none;
+}
+
+.question-item {
+  font-family: 'Lora', serif;
+  font-size: 25px;
+}
+
+.question-vote-item{
+  opacity: .6;
+  font-size: 15px;
+}
+
+#orspacing{
+  margin: 5%;
+}
+
+.style1{
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+#style2 {
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+#style2:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
 }

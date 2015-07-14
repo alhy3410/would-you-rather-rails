@@ -1,16 +1,19 @@
 <div id="question_<%= question.id %>">
-  <div id="question1_<%= question.id%>">
-    <%= question.question1 %>
-    <span id ="vote1_<%= question.id %>"><%= question.question1vote %></span>
+  <div class= "question-item" id="question1_<%= question.id%>">
+    Question 1: <%= question.question1 %>
+    <span class="question-vote-item" id ="vote1_<%= question.id %>"><%= question.question1vote %></span>
   </div>
-  <div id="question2_<%= question.id%>">
-    <%= question.question2 %>
-    <span id="vote2_<%= question.id %>"><%= question.question2vote %></span>
+  <p id="orspacing">
+    OR
+  </p>
+  <div class= "question-item" id="question2_<%= question.id%>">
+    Question 2: <%= question.question2 %>
+    <span class="question-vote-item" id="vote2_<%= question.id %>"><%= question.question2vote %></span>
   </div>
   <div id="answer_for_question_<%= question.id %>">
-    <%= link_to question.question1, question_path(question, selected: 1), method: :patch, remote: true %>
+    <%= link_to 'Vote for Question 1', question_path(question, selected: 1), method: :patch, remote: true %>
           or
-    <%= link_to question.question2, question_path(question, selected: 2), method: :patch, remote: true %>
+    <%= link_to 'Vote for Question 2', question_path(question, selected: 2), method: :patch, remote: true %>
   </div>
   <div class="question-actions">
     <%= link_to 'Edit', edit_question_path(question) %> ||
@@ -19,5 +22,8 @@
                           :method => "Delete"} %>
   </div>
   <br>
-  <hr>
+  <hr class="style1">
+  <hr id="style2">
+  <hr class="style1">
+
 </div>

@@ -1,3 +1,5 @@
 
 $("#vote1_<%= @question.id %>").text(<%= @question.question1vote %>);
 $("#vote2_<%= @question.id %>").text(<%= @question.question2vote %>);
+
+$("#answer_for_question_<%= @question.id %>").remove();
