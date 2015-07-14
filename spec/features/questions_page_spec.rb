@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 describe "it will go to the questions page of the site" do
   it "will verify there are questions there" do
     visit questions_path
