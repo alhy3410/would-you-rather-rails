@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'paperclip'
 gem 'bootstrap-sass'
 gem 'will_paginate'
+gem 'capybara'
 
 group :development do
   gem 'byebug'

@@ -4,10 +4,15 @@ class QuestionsController < ApplicationController
   csv_text = File.read('additionalfiles/questions.csv')
   csv = CSV.parse(csv_text, :headers => true)
   csv.each do |row|
+    row[0].capitalize!
     row[1].capitalize!
-    row[2].capitalize!
-    Question.create(row.to_hash)
+    # Question.create(row.to_hash) Not needed
+    Question.create({question1: row[0], question2: row[1]})
   end
+
+  # Not needed but this is the code to restart the primary keys
+  # Question.connection.execute('ALTER SEQUENCE questions_id_seq RESTART 37;')
+
 
   def index
     @questions = Question.paginate(:page => params[:page], :per_page => 10)
@@ -57,7 +62,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:question1, :question2, :question1vote, :question2vote)
+    params.require(:question).permit(:question1, :question2)
   end
 
 end
