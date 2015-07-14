@@ -4,11 +4,13 @@ class QuestionsController < ApplicationController
   csv_text = File.read('additionalfiles/questions.csv')
   csv = CSV.parse(csv_text, :headers => true)
   csv.each do |row|
+    row[1].capitalize!
+    row[2].capitalize!
     Question.create(row.to_hash)
   end
 
   def index
-    @questions = Question.all
+    @questions = Question.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
