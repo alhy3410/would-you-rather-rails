@@ -17,12 +17,10 @@ ActiveRecord::Schema.define(version: 20150713160749) do
   enable_extension "plpgsql"
 
   create_table "questions", force: :cascade do |t|
-    t.string   "question1"
-    t.string   "question2"
-    t.integer  "question1vote", default: 0
-    t.integer  "question2vote", default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "question1"
+    t.string  "question2"
+    t.integer "question1vote", default: 0
+    t.integer "question2vote", default: 0
   end
 
 end

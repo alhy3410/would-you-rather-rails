@@ -6,7 +6,6 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer :question1vote, default: 0
       t.integer :question2vote, default: 0
 
-      t.timestamps
     end
   end
 end

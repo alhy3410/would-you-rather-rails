@@ -1,4 +1,12 @@
 class QuestionsController < ApplicationController
+
+  require 'csv'
+  csv_text = File.read('additionalfiles/questions.csv')
+  csv = CSV.parse(csv_text, :headers => true)
+  csv.each do |row|
+    Question.create(row.to_hash)
+  end
+
   def index
     @questions = Question.all
   end

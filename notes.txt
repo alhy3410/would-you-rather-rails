@@ -1,0 +1,12 @@
+When first start,
+
+bundle
+
+rake db:create
+
+rake db:migrate
+
+go into psql and then upload the csv file into postgres but it should automatically insert all questions
+"COPY questions FROM '/Users/Guest/Desktop/would-you-rather-rails/additionalfiles/questions.csv' DELIMITER ',' CSV;"
+
+This will give you 36 questions for the project
