@@ -1,8 +1,8 @@
 <%= form_for @question, remote: true do |f| %>
-<%= f.label :question1, "Question 1" %>
+<%= f.label :question1, "Question 1", class: 'text-format' %>
 <%= f.text_field :question1 %>
 <br>
-<%= f.label :question2, "Question 2" %>
+<%= f.label :question2, "Question 2", class: 'text-format' %>
 <%= f.text_field :question2 %>
 <br>
 <%= f.submit %>

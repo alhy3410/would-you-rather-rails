@@ -17,8 +17,8 @@
  @import "bootstrap";
 
 body{
-  margin-right:20%;
-  margin-left:25%;
+  margin-right:10%;
+  margin-left:10%;
   padding: 10%;
   background-image: url("../images/background.jpg");
   background-repeat: no-repeat;
@@ -70,4 +70,12 @@ a{
     font-size: 1.5em;
     padding: 0 0.25em;
     background: white;
+}
+
+#new_question {
+  color:black;
+}
+
+.text-format{
+  color:white;
 }
