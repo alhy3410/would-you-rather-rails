@@ -3,13 +3,39 @@
 
 <%= flash[:notice] %>
 
-<div class="all-questions">
-  <div id= "all-questions-table">
-  <%= render(@questions) %>
-  <%= will_paginate @questions %>
-  </div>
+<div class="search">
+  <%= form_tag questions_path, method: :get do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", class: 'search-text-format', name: nil %>
+  </p>
+  <% end %>
 </div>
 
-<div class="links">
-  <p><%= link_to "Add another set of questions", new_question_path, id: 'new_questions', remote: true %></p>
-</div>
+<% if @questionsSearched %>
+  <div class="all-questions-searched">
+    <div id= "all-questions-table-searched">
+      <p>
+        Note: that the search will not take common words into account
+      </p>
+      <% if @questionsSearched.any? %>
+        <%= render(@questionsSearched) %>
+      <% else %>
+        <h3>There are no results. Perhaps search for something else</h3>
+      <% end %>
+    </div>
+  </div>
+
+<% else %>
+
+  <div class="all-questions">
+    <div id= "all-questions-table">
+    <%= render(@questions) %>
+    <%= will_paginate @questions %>
+    </div>
+  </div>
+
+  <div class="links">
+    <p><%= link_to "Add another set of questions", new_question_path, id: 'new_questions', remote: true %></p>
+  </div>
+<% end %>

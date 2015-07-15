@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.paginate(:page => params[:page], :per_page => 10)
+    @questionsSearched = Question.text_search(params[:query])
   end
 
   def new
