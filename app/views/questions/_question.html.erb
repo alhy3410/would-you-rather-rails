@@ -1,13 +1,15 @@
 <div id="question_<%= question.id %>">
+  Question 1:
   <div class= "question-item" id="question1_<%= question.id%>">
-    Question 1: <%= question.question1 %>
+    <%= question.question1 %>
     <span class="question-vote-item" id ="vote1_<%= question.id %>"><%= question.question1vote %></span>
   </div>
   <p id="orspacing">
     OR
   </p>
+  Question 2:
   <div class= "question-item" id="question2_<%= question.id%>">
-    Question 2: <%= question.question2 %>
+      <%= question.question2 %>
     <span class="question-vote-item" id="vote2_<%= question.id %>"><%= question.question2vote %></span>
   </div>
   <div id="answer_for_question_<%= question.id %>">
@@ -15,8 +17,9 @@
           or
     <%= link_to 'Vote for Question 2', question_path(question, selected: 2), method: :patch, remote: true %>
   </div>
+  <hr>
   <div class="question-actions">
-    <%= link_to 'Edit', edit_question_path(question) %> ||
+    <%= link_to 'Edit', edit_question_path(question), id: 'edit_questions', remote:true %> ||
     <%= link_to 'Delete', question_path(question),
                           :data => {:confirm => "Are you sure you want to delete this set of questions?",
                           :method => "Delete"} %>

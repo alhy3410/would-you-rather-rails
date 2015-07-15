@@ -44,14 +44,29 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     selected = params[:selected]
-    if selected == "1"
-      @question.update(question1vote: @question.question1vote + 1)
+
+    # question edit stuff
+    if selected == nil
+      if @question.update(question_params)
+        respond_to do |format|
+          format.html { redirect_to questions_path }
+          format.js
+        end
+      end
+
+    # vote stuff
     else
-      @question.update(question2vote: @question.question2vote + 1)
+      if selected == "1"
+        @question.update(question1vote: @question.question1vote + 1)
+      elsif selected == "2"
+        @question.update(question2vote: @question.question2vote + 1)
+      end
+      respond_to do |format|
+        format.js { render 'vote'}
+      end
     end
-    respond_to do |format|
-      format.js
-    end
+
+
   end
 
   def destroy
