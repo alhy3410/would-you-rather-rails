@@ -1,4 +1,4 @@
 $('#question1_<%= @question.id %>').text("<%= @question.question1 %>");
 $('#question2_<%= @question.id %>').text("<%= @question.question2 %>");
 $('#edit_question_<%= @question.id %>').hide();
-$('#edit_questions').show();
+$('#questions-actions_<%= @question.id %>').show();

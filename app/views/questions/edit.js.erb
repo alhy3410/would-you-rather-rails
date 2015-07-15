@@ -1,1 +1,2 @@
-$('#edit_questions').hide().after('<%= j render "form" %>')
+$('#questions-actions_<%= @question.id %>').hide()
+$('#questions-actions_<%= @question.id %>').after('<%= j render "form" %>')
